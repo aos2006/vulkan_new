@@ -1,0 +1,23 @@
+{
+  "name": "gulp-sass-template",
+  "description": "template",
+  "main": "index.js",
+  "directory": "src/",
+  "authors": [
+    "aos2006 <vashchenko-01@mail.ru>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/aos2006/gulp-sass-template",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "intl-tel-input": "^9.2.2",
+    "jquery.inputmask": "^3.3.3"
+  }
+}

@@ -1,0 +1,577 @@
++font('bebasNeueBold', 'bebasNeueBold')
++font('bebasNeueBook', 'bebasNeueBook')
++font('HelveticaNeueCyr-Medium', 'HelveticaNeueCyr-Medium')
++font('Robotolight', 'Robotolight')
+
+.container
+  width: 73.6%
+  margin-left: auto
+  margin-right: auto
+  +r(500px)
+    width: 100%
+    padding: 0 20px
+.bebasBold
+  font-family: 'bebasNeueBold', sans-serif
+.bebasBook
+  font-family: 'bebasNeueBook', sans-serif
+.helvetica
+  font-family: 'HelveticaNeueCyr-Medium', sans-serif
+.roboto
+  font-family: 'Robotolight', sans-serif
+.checkbox
+  position: relative
+  width: 19px
+  height: 19px
+  border-radius: 5px
+  border: 2px solid #dc9900
+  &__arrow
+    position: absolute
+    display: none
+    top: 50%
+    left: 50%
+    height: 5px
+    margin-top: -7px
+    transform: rotate(-45deg) translate(-50%, -50%)
+    width: 12px
+    border-left: 2px solid #dc9900
+    border-bottom: 2px solid #dc9900
+.out
+  position: relative
+  overflow: hidden
+  max-width: 750px
+  padding-bottom: 85px
+  margin-left: auto
+  margin-right: auto
+  background-image: url('../img/background.jpg')
+  background-size: cover
+  background-repeat: no-repeat
+  +r(750px)
+    background-position: 50% 50%
+    padding-bottom: 11.333333%
+.step
+  border-radius: 50%
+  width: 168px
+  height: 168px
+  display: flex
+  overflow: hidden
+  +r(650px)
+    width: 120px
+    height: 120px
+    &__first-half
+    &__second-half
+
+  +r(360px)
+    width: 100px
+    height: 100px
+  &__first-half
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 40.47619%
+    height: 100%
+    background-color: rgba(255, 211, 0, .39)
+    font-size: 34px
+    font-weight: 400
+    line-height: 0.97
+    text-align: right
+    overflow: hidden
+    +r(650px)
+      font-size: 20px
+    +r(360px)
+    & span
+      display: inline-block
+      width: 168px
+      text-align: center
+      margin-right: -20px
+      transform: rotate(-90deg)
+      color: #fff
+  &__second-half
+    background-color: #ffd300
+    width: 60%
+    height: 100%
+    line-height: 184px
+    text-align: left
+    padding-left: 5px
+    color: rgba(0, 0, 0, .5)
+    font-size: 82px
+    +r(650px)
+      line-height: 136px
+      font-size: 67px
+    +r(360px)
+      line-height: 116px
+      font-size: 54px
+.header
+  position: relative
+  padding: 23px 5.333333%
+  display: flex
+  align-items: center
+  background-color: #000
+  border-bottom-left-radius: 20px
+  border-bottom-right-radius: 20px
+  border: 3px solid #fff
+  border-top: none
+  justify-content: space-between
+  margin-bottom: 75px
+  &:before
+    position: absolute
+    content: ''
+    width: 50px
+    height: 50px
+    transform: rotate(45deg)
+    top: calc(100% - 25px)
+    background-color: #000
+    z-index: 1
+    right: 17.733333%
+    border-right: 3px solid #fff
+    border-bottom: 3px solid #fff
+  &__arrow
+    position: absolute
+    right: 17.733333%
+    top: calc(100% - 41px)
+    width: 50px
+    height: 50px
+    background-color: transparent
+    border-right: 3px solid #eba300
+    border-bottom: 3px solid #eba300
+    transform: rotate(45deg)
+    z-index: 2
+  &__logo
+    width: 21.866667%
+  &__subtitle
+    font-size: 10.666667vw
+    font-weight: 400
+    line-height: 0.35
+    color: #fff
+    text-transform: uppercase
+    white-space: nowrap
+
+.banner
+  margin-bottom: 50px
+  &__title
+    text-align: center
+    text-shadow: 0 0 23.9px rgba(0, 0, 0, 0.7)
+    font-size: 100px
+    font-weight: 400
+    line-height: 0.77
+    color: #ffd200
+    +r(750px)
+      +rfz(100)
+    & span
+      display: block
+      margin-top: 5px
+      font-size: 148px
+      margin-left: -3.26087%
+      text-shadow: 0 0 23.9px rgba(0, 0, 0, 0.7)
+      +r(750px)
+        +rfz(148)
+  &__subtitle
+    text-shadow: 0 0 22.8px #f114d4
+    color: #000
+    text-align: center
+    font-size: 69px
+    font-weight: 400
+    line-height: 0.99
+    +r(750px)
+      +rfz(69)
+.steps-list
+  &__step
+    margin-right: 4.528986%
+    margin-left: -12.318841%
+    margin-top: -28px
+    +r(500px)
+      margin-left: -15px
+  &__header
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    min-height: 168px
+    +r(650px)
+      min-height: calc( 120px - 28px)
+      margin-bottom: 15px
+    +r(360px)
+      min-height: calc(100px - 28px)
+
+  &__title
+    text-align: right
+    text-shadow: 0 0 141.6px rgba(0, 0, 0, 0.47)
+    color: #fff
+    font-size: 68px
+    font-weight: 400
+    line-height: 0.99
+    white-space: nowrap
+    +r(750px)
+      +rfz(68)
+    & span
+      color: #ffad00
+.presents
+  position: relative
+  &__i
+    display: flex
+    justify-content: space-between
+    +r(475px)
+      justify-content: flex-start
+  &__container
+    width: 78.544061%
+    +r(500px)
+      margin-right: -10px
+    +r(475px)
+      width: 63%
+  &__step
+   margin-bottom: 15px
+   & .step
+     margin-left: auto
+     margin-right: -12.318841%
+     +r(500px)
+       margin-right: -15px
+  & .step__first-half
+    transform: rotate(180deg)
+  & .step__second-half
+    text-align: right
+    padding-left: 0
+    padding-right: 5px
+  &__title
+    text-align: right
+    text-shadow: 0 0 57.8px rgba(0, 0, 0, 0.48)
+    color: #fff
+    font-size: 72px
+    font-weight: 400
+    white-space: nowrap
+    +r(750px)
+      text-align: center
+      +rfz(80)
+    +r(436px)
+      white-space: normal
+    & span
+      color: #ffaf00
+  &__arrows
+    position: relative
+    height: 50px
+    width: 50px
+    margin-bottom: 25px
+    margin-left: auto
+    margin-right: auto
+  &__arrow
+    position: absolute
+    width: 50px
+    height: 50px
+    border: 3px solid black
+    border-top: none
+    border-right: none
+    transform: rotate(-45deg)
+    &:first-of-type
+      top: -25px
+      border-bottom-color: #ac6d11
+      border-left-color: #ac6d11
+    &:last-of-type
+      top: -5px
+      border-left-color: #ec9700
+      border-bottom-color: #ec9700
+  &__para
+    text-align: center
+    text-shadow: 0 0 57.8px rgba(0, 0, 0, 0.48)
+    color: #fff
+    font-size: 50px
+    font-weight: 400
+    line-height: 0.88
+    max-width: 450px
+    margin-left: auto
+    margin-bottom: 9.02439%
+    +r(750px)
+      +rfz(60)
+    & span
+      color: #e59f00
+  &__descr
+    text-shadow: 0 0 36px #140312
+    color: rgba(0, 0, 0, 0)
+    font-size: 23px
+    font-weight: 300
+    line-height: 0.83
+    color: #e59f00
+    max-width: 450px
+    text-align: center
+    margin-left: auto
+    margin-bottom: 25.121951%
+    +r(750px)
+      +rfz(30)
+      line-height: 1
+.iphone-image
+  margin-top: -15.217391%
+  margin-left: -9.057971%
+  margin-right: 4.878049%
+  +sprite($iphone)
+  height: 459px
+  min-width: 159px
+  max-width: 159px
+  background-position: -65px -1087px
+  +r(500px)
+    margin-right: 5px
+    margin-left: -15px
+.thanks
+  position: relative
+  margin-bottom: 15.57971%
+  +r(660px)
+    margin-top: 9.963768%
+  &__step
+    margin-left: -12.318841%
+    margin-right: 4.528986%
+    margin-top: -5.072464%
+    +r(500px)
+      margin-left: -15px
+  &__header
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    margin-bottom: 15px
+  &__title
+    text-shadow: 0 0 141.6px rgba(0, 0, 0, 0.47)
+    color: #e89300
+    font-size: 72px
+    font-weight: 400
+    line-height: 1.24
+    +r(750px)
+      +rfz(72)
+    & span
+      color: #fff
+  & .step__first-half
+    transform: rotate(-360deg)
+  & .step__second-half
+    padding-right: 0
+    padding-left: 5px
+    text-align: left
+.checkbox-list
+  &__item
+    position: relative
+    margin-top: -2.717391%
+    &:first-child
+      margin-top: 0
+  &__label
+    position: relative
+    text-shadow: 0 0 36px #140312
+    color: #fff
+    font-size: 49px
+    font-weight: 400
+    line-height: 1.45
+    +r(750px)
+      +rfz(49)
+    & .checkbox
+      position: relative
+      width: 19px
+      height: 19px
+      display: inline-block
+      vertical-align: middle
+      border: 2px solid #dc9900
+      border-radius: 3px
+    & .checkbox__arrow
+      position: absolute
+      display: none
+      left: 2px
+      top: 8px
+      content: ''
+      height: 8px
+      width: 12px
+      transform: rotate(-45deg)
+      border-left: 4px solid #dc9900
+      border-bottom: 4px solid #dc9900
+input[type='checkbox']:checked + label:after
+  display: block
+input[type='checkbox']:checked + label .checkbox__arrow
+  display: block
+
+.swift-image
+  position: absolute
+  bottom: 0
+  right: -14.2%
+  width: 43.65942%
+  +r(500px)
+    right: -15px
+
+.presentation-title
+  text-shadow: 0 0 36px #000
+  color: #ff00d6
+  font-size: 26px
+  font-weight: 400
+  line-height: 0.87
+  text-align: center
+  +r(423px)
+    margin-bottom: 20px
+  +r(620px)
+    font-size: 26px
+  &:first-of-type
+    margin-top: -9.057971%
+    position: relative
+    right: -3.623188%
+  &--left
+    position: relative
+    left: -5.797101%
+    margin-top: -20px
+  &--rotate-15
+    transform: rotate(15deg)
+  &--rotate-reverse-15
+    transform: rotate(-10deg)
+  &--rotate-10
+    transform: rotate(5deg)
+.cash__wrapper
+  max-width: 423px
+  margin-left: auto
+.cash-3000
+  position: relative
+  text-align: right
+  margin-bottom: 17px
+  margin-left: auto
+  margin-right: -4.528986%
+  margin-top: -10%
+  +r(660px)
+    margin-top: 0
+  &:before
+    position: absolute
+    bottom: 100%
+    max-width: 423px
+    display: inline-block
+    left: 21%
+    content: 'получить до'
+    text-shadow: 0 0 36px #000
+    color: #ff00d6
+    font-weight: 400
+    line-height: 0.87
+    text-align: center
+    transform: rotate(-15deg)
+    font-family: 'bebasNeueBook', sans-serif
+    font-size: 26px
+  &:after
+    position: absolute
+    bottom: -3px
+    display: inline-block
+    left: 21%
+    content: 'или'
+    text-shadow: 0 0 36px #000
+    color: #ff00d6
+    font-weight: 400
+    line-height: 0.87
+    text-align: center
+    transform: rotate(-15deg)
+    font-family: 'bebasNeueBook', sans-serif
+    font-size: 26px
+    +r(423px)
+      bottom: -10px
+      left: 17%
+
+.cash-140000
+  text-align: right
+  margin-top: -1.640937%
+  margin-left: auto
+  margin-bottom: 20px
+.submit-button
+  display: block
+  margin-left: auto
+  margin-right: auto
+  padding-top: 21px
+  width: 555px
+  height: 140px
+  background-image: linear-gradient(to top, #ffae00 0%, #ffd200 100%)
+  box-shadow: 0 0 212.5px 37.5px rgba(0, 0, 0, 0.56)
+  font-size: 95px
+  font-weight: 400
+  border-radius: 5px
+  color: #000
+  +r(750px)
+    width: 100%
+    +rfz(95)
+    height: 25.362319%
+    padding-top: 3.804348%
+.content__button
+  margin-bottom: 97px
+  +r(750px)
+    margin-bottom: 17.572464%
+
+.accept-checkbox
+  width: 100%
+  &__label
+    display: block
+    text-shadow: 0 0 36px #140312
+    font-size: 23px
+    font-weight: 300
+    line-height: 0.83
+    color: #e59f00
+    text-align: center
+
+    & .checkbox
+      display: inline-block
+      vertical-align: top
+
+.thanks-for-reg,
+.modal
+  display: none
+  max-width: 750px
+  margin-left: auto
+  margin-right: auto
+  position: fixed
+  left: -3px
+  right: -3px
+  z-index: 10
+  @extend .header
+  margin-bottom: 0
+  &--show
+    display: block
+  & .header
+    padding: 0
+    border: none
+    margin-bottom: 17px
+    &:before
+      display: none
+  &__txt
+    display: block
+    color: #ffcb00
+    font-size: 68px
+    font-weight: 400
+    line-height: 0.87
+    text-align: center
+.smile-image
+  display: block
+  margin-left: auto
+  margin-right: auto
+  margin-bottom: 37px
+  +sprite($smile)
+.modal
+  position: absolute
+  display: none
+  &--show
+    display: block
+  & .header
+    margin-bottom: 74px
+  &__title
+    text-align: center
+    color: #ffcb00
+    margin-bottom: 66px
+    font-size: 68px
+    font-weight: 400
+    line-height: 0.87
+  &__form
+    & .accept-checkbox
+      margin-bottom: 40px
+    & .submit-button
+      margin-bottom: 39px
+  &__input
+    display: block
+    padding-top: 10px
+    margin-bottom: 46px
+    margin-left: auto
+    margin-right: auto
+    width: 552px
+    height: 139px
+    text-align: center
+    border-radius: 5px
+    font-size: 75px
+    background-color: transparent
+    border: 3px solid #fff
+    color: #fff
+    &::-webkit-input-placeholder
+      color: #fff
+    &:-moz-placeholder
+      color: #fff
+      opacity:  1
+    &::-moz-placeholder
+      color: #fff
+      opacity:  1
+    &:-ms-input-placeholder
+      color: #fff
+//display: none

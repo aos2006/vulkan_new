@@ -1,0 +1,138 @@
+/*
+  SASS variables are information about icon's compiled state, stored under its original file name
+
+  .icon-home
+    width: $icon-home-width
+
+  The large array-like variables contain all information about a single icon
+  $icon-home: x y offset_x offset_y width height total_width total_height image_path
+
+  At the bottom of this section, we provide information about the spritesheet itself
+  $spritesheet: width height image $spritesheet-sprites
+  */
+$cash-1-name: 'cash-1'
+$cash-1-x: 0px
+$cash-1-y: 116px
+$cash-1-offset-x: 0px
+$cash-1-offset-y: -116px
+$cash-1-width: 423px
+$cash-1-height: 129px
+$cash-1-total-width: 586px
+$cash-1-total-height: 1767px
+$cash-1-image: '../img/sprite.png'
+$cash-1: (0px, 116px, 0px, -116px, 423px, 129px, 586px, 1767px, '../img/sprite.png', 'cash-1', )
+$cash-2-name: 'cash-2'
+$cash-2-x: 0px
+$cash-2-y: 0px
+$cash-2-offset-x: 0px
+$cash-2-offset-y: 0px
+$cash-2-width: 586px
+$cash-2-height: 116px
+$cash-2-total-width: 586px
+$cash-2-total-height: 1767px
+$cash-2-image: '../img/sprite.png'
+$cash-2: (0px, 0px, 0px, 0px, 586px, 116px, 586px, 1767px, '../img/sprite.png', 'cash-2', )
+$iphone-name: 'iphone'
+$iphone-x: 0px
+$iphone-y: 867px
+$iphone-offset-x: 0px
+$iphone-offset-y: -867px
+$iphone-width: 454px
+$iphone-height: 900px
+$iphone-total-width: 586px
+$iphone-total-height: 1767px
+$iphone-image: '../img/sprite.png'
+$iphone: (0px, 867px, 0px, -867px, 454px, 900px, 586px, 1767px, '../img/sprite.png', 'iphone', )
+$logo-name: 'logo'
+$logo-x: 0px
+$logo-y: 245px
+$logo-offset-x: 0px
+$logo-offset-y: -245px
+$logo-width: 164px
+$logo-height: 151px
+$logo-total-width: 586px
+$logo-total-height: 1767px
+$logo-image: '../img/sprite.png'
+$logo: (0px, 245px, 0px, -245px, 164px, 151px, 586px, 1767px, '../img/sprite.png', 'logo', )
+$smile-name: 'smile'
+$smile-x: 0px
+$smile-y: 629px
+$smile-offset-x: 0px
+$smile-offset-y: -629px
+$smile-width: 238px
+$smile-height: 238px
+$smile-total-width: 586px
+$smile-total-height: 1767px
+$smile-image: '../img/sprite.png'
+$smile: (0px, 629px, 0px, -629px, 238px, 238px, 586px, 1767px, '../img/sprite.png', 'smile', )
+$swift-name: 'swift'
+$swift-x: 0px
+$swift-y: 396px
+$swift-offset-x: 0px
+$swift-offset-y: -396px
+$swift-width: 241px
+$swift-height: 233px
+$swift-total-width: 586px
+$swift-total-height: 1767px
+$swift-image: '../img/sprite.png'
+$swift: (0px, 396px, 0px, -396px, 241px, 233px, 586px, 1767px, '../img/sprite.png', 'swift', )
+$spritesheet-width: 586px
+$spritesheet-height: 1767px
+$spritesheet-image: '../img/sprite.png'
+$spritesheet-sprites: ($cash-1, $cash-2, $iphone, $logo, $smile, $swift, )
+$spritesheet: (586px, 1767px, '../img/sprite.png', $spritesheet-sprites, )
+
+/*
+  The provided mixins are intended to be used with the array-like variables
+
+  .icon-home
+    @include sprite-width($icon-home)
+
+  .icon-email
+    @include sprite($icon-email)
+
+  Example usage in HTML:
+    `display: block` sprite:
+    <div class="icon-home"></div>
+
+  To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+    // CSS
+    .icon {
+      display: inline-block;
+    }
+
+    // HTML
+    <i class="icon icon-home"></i>
+  */
+@mixin sprite-width($sprite)
+  width: nth($sprite, 5)
+
+@mixin sprite-height($sprite)
+  height: nth($sprite, 6)
+
+@mixin sprite-position($sprite)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background-position: $sprite-offset-x  $sprite-offset-y
+
+@mixin sprite-image($sprite)
+  $sprite-image: nth($sprite, 9)
+  background-image: url(#{$sprite-image})
+
+@mixin sprite($sprite)
+  @include sprite-image($sprite)
+  @include sprite-position($sprite)
+  @include sprite-width($sprite)
+  @include sprite-height($sprite)
+
+/*
+  The `sprites` mixin generates identical output to the CSS template
+    but can be overridden inside of SASS
+
+  @include sprites($spritesheet-sprites)
+  */
+@mixin sprites($sprites)
+  @each $sprite in $sprites
+    $sprite-name: nth($sprite, 10)
+    .#{$sprite-name}
+      @include sprite($sprite)
