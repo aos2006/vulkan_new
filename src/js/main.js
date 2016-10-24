@@ -48,7 +48,7 @@ $(document).ready(function(){
 
   buttonSubmit.on('click', function(ev){
     ev.preventDefault();
-    var selfInput = $(ev.currentTarget).parent().find('.js-phone');
+    var selfInput = $('.js-phone');
     var isChcked = $('.js-checkbox').is(':checked');
     var isValidInput = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(selfInput.val());
     console.log(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(selfInput.val()));
