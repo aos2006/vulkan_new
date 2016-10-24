@@ -3,9 +3,27 @@ $(document).ready(function(){
   var item = $('.js-item');
   var modal = $('.js-modal');
   var buttonSubmit = $('.js-submit');
-  var deviceHeight = $(window).height();
-  var deviceWidth = $(window).width();
   var repeathChance = $('.thanks__repeat');
+  var decorCheckbox = $('.js-decor-checkbox');
+  var showModal = $('.js-show-modal');
+
+
+
+  showModal.on('click', function(ev){
+    ev.preventDefault();
+    if ($('.js-thanks').hasClass('thanks-for-reg--show')) {
+      $('.js-thanks').removeClass('thanks-for-reg--show');
+    }
+    $('body, html').animate({
+      scrollTop: 0
+    }, 1000, function(){
+      modal.addClass('modal--show');
+    });
+  })
+
+  decorCheckbox.on('click', function(ev) {
+    ev.preventDefault();
+  })
 
   function clearForm() {
     $('.form__error').removeClass('form__error--show')
@@ -31,13 +49,13 @@ $(document).ready(function(){
   buttonSubmit.on('click', function(ev){
     ev.preventDefault();
     var selfInput = $(ev.currentTarget).parent().find('.js-phone');
-    var isChcked = $($(ev.currentTarget).parent().find('.js-checkbox')).is(':checked');
+    var isChcked = $('.js-checkbox').is(':checked');
     var isValidInput = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(selfInput.val());
     console.log(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(selfInput.val()));
     if (isChcked && isValidInput) {
       $(ev.currentTarget).parent().find('.js-error').removeClass('form__error--show');
       $(ev.currentTarget).parent().find('label').removeClass('error')
-      selfInput.removeClass('form__input--error');
+      selfInput.removeClass('modal__input--error');
       //$(ev.currentTarget).parent().find('.js-error').addClass('thanks')
       $.ajax({
         url: 'http://smsintegrator.ru/api/v1/order/save',
@@ -46,8 +64,11 @@ $(document).ready(function(){
           'Access-Control-Allow-Origin': '*'
         },
         success: function() {
-          $(ev.currentTarget).parent().addClass('form--hide');
-          $(ev.currentTarget).parent().parent().find('.thanks').addClass('thanks--show');
+          modal.removeClass('modal--show');
+          $('.js-thanks').addClass('thanks-for-reg--show');
+          setTimeout(function(){
+            $('.js-thanks').removeClass('thanks-for-reg--show')
+          }, 5000)
         },
         data: {
           phone: selfInput.val(),
@@ -58,7 +79,7 @@ $(document).ready(function(){
     }
 
     if (!isValidInput || selfInput.val() === '') {
-      selfInput.addClass('form__input--error');
+      selfInput.addClass('modal__input--error');
       $(ev.currentTarget).parent().find('.js-error').addClass('form__error--show');
     }
 
@@ -74,20 +95,20 @@ $(document).ready(function(){
     }
   })
 
-  item.on('click', function() {
-    console.log('clicked');
-    modal.addClass('popup--show');
-    clearForm();
-  })
+  //item.on('click', function() {
+  //  console.log('clicked');
+  //  modal.addClass('popup--show');
+  //  clearForm();
+  //})
 
-  modal.on('click', function(ev) {
-    if ($(ev.target).hasClass('js-modal')) {
-      modal.removeClass('popup--show');
-      clearForm()
-    }
-
-    return;
-  })
+  //modal.on('click', function(ev) {
+  //  if ($(ev.target).hasClass('js-modal')) {
+  //    modal.removeClass('modal--show');
+  //    clearForm()
+  //  }
+  //
+  //  return;
+  //})
 
   //inputTel.on('focus', function() {
   //  //$('body').animate({

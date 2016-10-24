@@ -18,6 +18,13 @@
   font-family: 'HelveticaNeueCyr-Medium', sans-serif
 .roboto
   font-family: 'Robotolight', sans-serif
+label.error
+  color: red
+label.error > .checkbox
+  border-color: red!important
+  animation: vibro .1s linear alternate infinite
+label > .checkbox
+  animation: none
 .checkbox
   position: relative
   width: 19px
@@ -102,7 +109,7 @@
       font-size: 54px
 .header
   position: relative
-  padding: 23px 5.333333%
+  padding: 18px 5.333333%
   display: flex
   align-items: center
   background-color: #000
@@ -111,14 +118,14 @@
   border: 3px solid #fff
   border-top: none
   justify-content: space-between
-  margin-bottom: 75px
+  margin-bottom: 55px
   &:before
     position: absolute
     content: ''
-    width: 50px
-    height: 50px
+    width: 30px
+    height: 30px
     transform: rotate(45deg)
-    top: calc(100% - 25px)
+    top: calc(100% - 15px)
     background-color: #000
     z-index: 1
     right: 17.733333%
@@ -126,15 +133,16 @@
     border-bottom: 3px solid #fff
   &__arrow
     position: absolute
-    right: 17.733333%
-    top: calc(100% - 41px)
-    width: 50px
-    height: 50px
+    right: calc(17.733333% + 1px)
+    top: calc(100% - 25px)
+    width: 30px
+    height: 30px
     background-color: transparent
     border-right: 3px solid #eba300
     border-bottom: 3px solid #eba300
     transform: rotate(45deg)
     z-index: 2
+    animation: bounce 1s linear alternate infinite
   &__logo
     width: 21.866667%
   &__subtitle
@@ -260,14 +268,16 @@
     border-top: none
     border-right: none
     transform: rotate(-45deg)
+    animation: changeColor .2s linear forwards infinite
     &:first-of-type
       top: -25px
-      border-bottom-color: #ac6d11
-      border-left-color: #ac6d11
+      //border-bottom-color: #ac6d11
+      //border-left-color: #ac6d11
     &:last-of-type
       top: -5px
-      border-left-color: #ec9700
-      border-bottom-color: #ec9700
+      //border-left-color: #ec9700
+      //border-bottom-color: #ec9700
+      animation-delay: .1s
   &__para
     text-align: center
     text-shadow: 0 0 57.8px rgba(0, 0, 0, 0.48)
@@ -367,17 +377,13 @@
       position: absolute
       display: none
       left: 2px
-      top: 8px
+      top: 10px
       content: ''
       height: 8px
       width: 12px
       transform: rotate(-45deg)
       border-left: 4px solid #dc9900
       border-bottom: 4px solid #dc9900
-input[type='checkbox']:checked + label:after
-  display: block
-input[type='checkbox']:checked + label .checkbox__arrow
-  display: block
 
 .swift-image
   position: absolute
@@ -450,7 +456,7 @@ input[type='checkbox']:checked + label .checkbox__arrow
     font-weight: 400
     line-height: 0.87
     text-align: center
-    transform: rotate(-15deg)
+    transform: rotate(15deg)
     font-family: 'bebasNeueBook', sans-serif
     font-size: 26px
     +r(423px)
@@ -495,25 +501,26 @@ input[type='checkbox']:checked + label .checkbox__arrow
     line-height: 0.83
     color: #e59f00
     text-align: center
-
     & .checkbox
       display: inline-block
       vertical-align: top
-
 .thanks-for-reg,
 .modal
-  display: none
+  display: block
   max-width: 750px
   margin-left: auto
   margin-right: auto
   position: fixed
+  transform: translateY(-2000px)
+  transition: transform .5s ease-in
   left: -3px
   right: -3px
-  z-index: 10
+  z-index: 20
   @extend .header
   margin-bottom: 0
   &--show
-    display: block
+    transform: translateY(0)
+    transition: transform .5s ease-out
   & .header
     padding: 0
     border: none
@@ -527,6 +534,9 @@ input[type='checkbox']:checked + label .checkbox__arrow
     font-weight: 400
     line-height: 0.87
     text-align: center
+    +r(750px)
+      +rfz(68)
+      line-height: 1
 .smile-image
   display: block
   margin-left: auto
@@ -535,23 +545,36 @@ input[type='checkbox']:checked + label .checkbox__arrow
   +sprite($smile)
 .modal
   position: absolute
-  display: none
-  &--show
+  display: block
+  &--show + .overlay
     display: block
   & .header
-    margin-bottom: 74px
+    position: relative
+    z-index: 20
+    margin-bottom: 9.866667%
   &__title
     text-align: center
     color: #ffcb00
-    margin-bottom: 66px
+    margin-bottom: 8.8%
     font-size: 68px
     font-weight: 400
     line-height: 0.87
+    position: relative
+    z-index: 20
+    +r(750px)
+      +rfz(68)
+      line-height: 1
   &__form
+    position: relative
+    z-index: 20
     & .accept-checkbox
       margin-bottom: 40px
+      +r(552px)
+        margin-bottom: 7.133333%
     & .submit-button
       margin-bottom: 39px
+      +r(552px)
+        margin-bottom: 5.2%
   &__input
     display: block
     padding-top: 10px
@@ -566,6 +589,13 @@ input[type='checkbox']:checked + label .checkbox__arrow
     background-color: transparent
     border: 3px solid #fff
     color: #fff
+    &--error
+      border-color: red
+    +r(552px)
+      width: 100%
+      height: 100px
+      font-size: 65px
+      margin-bottom: 7.133333%
     &::-webkit-input-placeholder
       color: #fff
     &:-moz-placeholder
@@ -577,3 +607,43 @@ input[type='checkbox']:checked + label .checkbox__arrow
     &:-ms-input-placeholder
       color: #fff
 //display: none
+.overlay
+  display: none
+  content: ''
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background-color: rgba(0, 0, 0, .71)
+  z-index: 9
+input[type='checkbox']:checked + label .checkbox__arrow
+  display: block!important
+input[type='checkbox']:checked + label
+  color: #e59f00
+input[type='checkbox']:checked + label .checkbox
+  animation: none
+  border-color: #e59f00!important
+@keyframes bounce
+  from
+    transform: translateY(0) rotate(45deg)
+  to
+    transform: translateY(-5px) rotate(45deg)
+@keyframes changeColor
+  0%
+    border-color: #ac6d11
+  6%
+    border-color: #ec9700
+  24%
+    border-color: #ec9700
+  30%
+    border-color: #ac6d11
+  100%
+    border-color: #ac6d11
+
+@keyframes vibro
+  from
+    transform: translateX(0)
+  to
+    transform: translateX(2px)
+
