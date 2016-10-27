@@ -26,8 +26,7 @@ $(document).ready(function(){
   })
 
   function clearForm() {
-    $('.form__error').removeClass('form__error--show')
-    $('.form__input').removeClass('form__input--error');
+    $('.modal__input').removeClass('modal__input--error');
   }
 
   repeathChance.on('click', function() {
@@ -101,14 +100,19 @@ $(document).ready(function(){
   //  clearForm();
   //})
 
-  //modal.on('click', function(ev) {
-  //  if ($(ev.target).hasClass('js-modal')) {
-  //    modal.removeClass('modal--show');
-  //    clearForm()
-  //  }
-  //
-  //  return;
-  //})
+  modal.on('click', function(ev) {
+    if ($(ev.target).hasClass('js-modal')) {
+      modal.removeClass('modal--show');
+      clearForm()
+    }
+
+    return;
+  })
+
+  $('.overlay').on('click', function(){
+    modal.removeClass('modal--show');
+    clearForm()
+  });
 
   //inputTel.on('focus', function() {
   //  //$('body').animate({
